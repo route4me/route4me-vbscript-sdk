@@ -1,0 +1,31 @@
+<job id="Get Note Insert Activities">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			' You should insert real test data and your API key for accurate testing
+
+			url="https://www.route4me.com/api/get_activities.php"
+			apikey="11111111111111111111111111111111"
+			routeid="5C15E83A4BE005BCD1537955D28D51D7"
+			act_type="note-insert"
+			
+			url=url&"?api_key="&apikey
+			url=url&"&route_id="&routeid
+			url=url&"&activity_type="&act_type
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpGetRequest(url)
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

@@ -54,6 +54,35 @@ Class Route4Me
 		Set http = Nothing
 	End Sub
 	
+	Public Sub HttpGetRequest2(url,jFile)
+		Set WshShell = WScript.CreateObject("WScript.Shell")
+		'Set http = CreateObject("Microsoft.XmlHttp")
+		Set http = CreateObject("MSXML2.ServerXMLHTTP")
+		
+		On Error Resume Next
+
+		http.open "GET",url,False
+		http.setOption 2, SXH_SERVER_CERT_IGNORE_ALL_SERVER_ERRORS
+		
+		On Error Resume Next
+		If jFile="" Then
+			http.send ""
+		Else
+			jText = File2Json(jFile)
+			http.setRequestHeader "Content-Length", Len(jText)
+			http.send jText
+		End If
+		
+		If Err.Number = 0 Then
+			Write2File(http.responseText)
+		Else
+			WScript.Echo "error " & Err.Number& ":" & Err.Description
+		End If
+		
+		Set WshShell = Nothing
+		Set http = Nothing
+	End Sub
+	
 	Public Sub HttpPostRequest(url,jFile)
 		Dim jText
 		Set WshShell = WScript.CreateObject("WScript.Shell")

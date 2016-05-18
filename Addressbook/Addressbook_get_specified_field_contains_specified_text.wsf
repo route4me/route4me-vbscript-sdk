@@ -1,0 +1,37 @@
+<job id="Addressbook Get Contacts By Fields text">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="http://www.route4me.com/api.v4/address_book.php"
+			apikey="11111111111111111111111111111111"
+			
+			' Example demostrates search for all Addressbook contacts, any specified fields which of contains search_text value
+			' Fields are listed in json file
+			
+			jFile="Addressbook_get_specified_field_contains_specified_text_data.json"
+			
+			search_text="david"
+			offset="0"
+			limit="20"
+			
+			url=url&"?api_key="&apikey
+			url=url&"&query="&search_text
+			url=url&"&offset="&offset
+			url=url&"&limit="&limit
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpGetRequest2 url,jFile
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

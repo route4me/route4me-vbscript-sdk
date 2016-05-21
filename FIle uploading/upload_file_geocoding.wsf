@@ -1,0 +1,32 @@
+<job id="Upload File Geocoding">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://www.route4me.com/actions/upload/csv-xls-geocode.php"
+			apikey="11111111111111111111111111111111"
+			upload_id="b2130b5fc36ae1109ef63b6db73781f6"
+			
+			url=url&"?api_key="&apikey
+			url=url&"&strUploadID="&upload_id
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpPostRequest2 url,jFile
+			
+			' In more complex case, yo can define valid and ignore column names:
+
+			' curl -o file1.txt -g -k -X POST -d "@upload_file_geocoding_data.json" "%url%?api_key=%apikey%&strUploadID=%upload_id%"
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

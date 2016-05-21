@@ -1,0 +1,28 @@
+<job id="Upload File Excel">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://www.route4me.com/actions/upload/upload.php"
+			apikey="11111111111111111111111111111111"
+			format="json"
+			filename="4 addresses linked 2 New Filters.xlsx"
+			
+			url=url&"?api_key="&apikey
+			url=url&"&format="&format
+			
+			Set r4m=New Route4Me
+			
+			r4m.Upload url, filename, "strFilename", "strFilename="&filename
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

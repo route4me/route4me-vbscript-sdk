@@ -145,6 +145,88 @@ Class Route4Me
 		Set http = Nothing
 	End Sub
 	
+	Sub Upload(strUploadUrl, strFilePath, strFileField, strDataPairs)
+	'Uses POST to upload a file and miscellaneous form data
+	'strUploadUrl is the URL (https://www.route4me.com/actions/upload/upload.php)
+	'strFilePath is the file to upload
+	'strFileField is the web page equivalent form field name for the file (strFilename)
+	'strDataPairs are pipe-delimited form data pairs (foo=bar|strFilename=filename)
+	Const MULTIPART_BOUNDARY = "---------------------------0123456789012"
+	Dim ado, rs
+	Dim lngCount
+	Dim bytFormData, bytFormStart, bytFormEnd, bytFile
+	Dim strFormStart, strFormEnd, strDataPair
+	Dim web
+	Const adLongVarBinary = 205
+		'Read the file into a byte array
+		Set ado = CreateObject("ADODB.Stream")
+		ado.Type = 1
+		ado.Open
+		ado.LoadFromFile strFilePath
+		bytFile = ado.Read
+		ado.Close
+		'Create the multipart form data. 
+		'Define the end of form
+		strFormEnd = vbCrLf & "--" & MULTIPART_BOUNDARY & "--" & vbCrLf
+		'First add any ordinary form data pairs
+		strFormStart = ""
+		For Each strDataPair In Split(strDataPairs, "|")
+			strFormStart = strFormStart & "--" & MULTIPART_BOUNDARY & vbCrLf
+			strFormStart = strFormStart & "Content-Disposition: form-data; "
+			strFormStart = strFormStart & "name=""" & Split(strDataPair, "=")(0) & """"
+			strFormStart = strFormStart & vbCrLf & vbCrLf
+			strFormStart = strFormStart & Split(strDataPair, "=")(1)
+			strFormStart = strFormStart & vbCrLf
+		Next
+		'Now add the header for the uploaded file
+		strFormStart = strFormStart & "--" & MULTIPART_BOUNDARY & vbCrLf
+		strFormStart = strFormStart & "Content-Disposition: form-data; "
+		strFormStart = strFormStart & "name=""" & strFileField & """; "
+		strFormStart = strFormStart & "filename=""" & Mid(strFilePath, InStrRev(strFilePath, "\") + 1) & """"
+		strFormStart = strFormStart & vbCrLf
+		strFormStart = strFormStart & "Content-Type: application/upload" 'bogus, but it works
+		strFormStart = strFormStart & vbCrLf & vbCrLf
+
+		'Create a recordset large enough to hold everything
+		Set rs = CreateObject("ADODB.Recordset")
+		rs.Fields.Append "FormData", adLongVarBinary, Len(strFormStart) + LenB(bytFile) + Len(strFormEnd)
+		rs.Open
+		rs.AddNew
+		'Convert form data so far to zero-terminated byte array
+		For lngCount = 1 To Len(strFormStart)
+			bytFormStart = bytFormStart & ChrB(Asc(Mid(strFormStart, lngCount, 1)))
+		Next
+		rs("FormData").AppendChunk bytFormStart & ChrB(0)
+		bytFormStart = rs("formData").GetChunk(Len(strFormStart))
+		rs("FormData") = ""
+		'Get the end boundary as a zero-terminated byte array
+		For lngCount = 1 To Len(strFormEnd)
+			bytFormEnd = bytFormEnd & ChrB(Asc(Mid(strFormEnd, lngCount, 1)))
+		Next
+		
+		rs("FormData").AppendChunk bytFormEnd & ChrB(0)
+		bytFormEnd = rs("formData").GetChunk(Len(strFormEnd))
+		rs("FormData") = ""
+		'Now merge it all
+		rs("FormData").AppendChunk bytFormStart
+		rs("FormData").AppendChunk bytFile
+		rs("FormData").AppendChunk bytFormEnd
+		bytFormData = rs("FormData")
+		rs.Close
+		'Upload it
+		Set web = CreateObject("WinHttp.WinHttpRequest.5.1")
+		web.Open "POST", strUploadUrl, False
+		web.SetRequestHeader "Content-Type", "multipart/form-data; boundary=" & MULTIPART_BOUNDARY
+		web.Send bytFormData
+		
+		
+		If Err.Number = 0 Then
+			Write2File(web.responseText)
+		Else
+			WScript.Echo "error " & Err.Number& ":" & Err.Description
+		End If
+	End Sub
+	
 	Public Sub HttpPutRequest(url,jFile)
 		Dim jText
 		Set WshShell = WScript.CreateObject("WScript.Shell")

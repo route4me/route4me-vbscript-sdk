@@ -1,1 +1,0 @@
-![Route4Me](http://route4me.com/static/img/05012011/logo.png)

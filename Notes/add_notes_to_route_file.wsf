@@ -1,0 +1,42 @@
+<job id="Add Notes To Route File Uploading">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			' Add a note to the route using of file uploading
+			' You should insert real test data and your API key for accurate testing
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://www.route4me.com/actions/addRouteNotes.php"
+			apikey="11111111111111111111111111111111"
+			routeid="7CA872B9D3C0C22B54841090DD3F0C4B"
+			addrid="167101717"
+			dev_lat="33.132675170898"
+			dev_lng="-83.244743347168"
+			dev_type="web"
+			updatetype="dropoff"
+			filename="notes.csv"
+			
+			url=url&"?api_key="&apikey
+			url=url&"&route_id="&routeid
+			url=url&"&address_id="&addrid
+			url=url&"&dev_lat="&dev_lat
+			url=url&"&dev_lng="&dev_lng
+			url=url&"&device_type="&dev_type
+			url=url&"&strUpdateType="&updatetype
+			
+			Set r4m=New Route4Me
+			
+			r4m.Upload url, filename, "strFilename", "strFilename="&filename
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

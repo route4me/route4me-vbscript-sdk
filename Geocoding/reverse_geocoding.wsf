@@ -1,4 +1,4 @@
-<job id="Batch Geocoding">
+<job id="Reverse Geocoding">
 	<script language="VBScript" src="../Route4Me.vbs"/>
 	<script language="VBScript">
 		WScript.Quit main()
@@ -7,14 +7,14 @@
 			Dim r4m
 			Dim jFile
 			
-			' You can put in thge parameter 'addresses' more than one addresses divided by '||', but only one location will be processed, rest locations will be ignored.
+			' You can put in the parameter 'addresses' more than one location divided by '||', but only one location will be processed, rest locations will be ignored.
 			
 			WScript.Echo "Please, press OK and wait..."
 			
 			url="https://www.route4me.com/api/geocoder.php"
 			apikey="11111111111111111111111111111111"
 			format="xml"
-			addrs="Los20%Angeles20%International20%Airport,20%CA"
+			addrs="42.35863,-71.05670"
 			
 			url=url&"?api_key="&apikey
 			url=url&"&format="&format

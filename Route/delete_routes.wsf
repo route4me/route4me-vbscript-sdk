@@ -9,16 +9,18 @@
 			
 			WScript.Echo "Please, press OK and wait..."
 			
-			url="https://www.route4me.com/actions/delete_routes.php"
+			url="https://www.route4me.com/api.v4/route.php"
 			apikey="11111111111111111111111111111111"
+			routeid="270CB108F227AD6E11827FC08EE4E2D7,C340E3F6AF28E20EFAE0FBE51759C338"
 			
 			url=url&"?api_key="&apikey
+			url=url&"&route_id="&routeid
 
-			jFile="delete_routes_data.json"
+			jFile=""
 			
 			Set r4m=New Route4Me
 			
-			r4m.HttpPostRequest url,jFile
+			r4m.HttpDeleteRequest url,jFile
 			
 			main=1
 			

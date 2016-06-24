@@ -1,0 +1,34 @@
+<job id="Get Orders By Custom Fields">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			
+			' The example refers to the process of searching all Orders with specified custom fields.
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="http://www.route4me.com/api.v4/order.php"
+			apikey="11111111111111111111111111111111"
+			
+			fields="order_id,member_id"
+			offset="0"
+			limit="20"
+			
+			url=url&"?api_key="&apikey
+			url=url&"&fields="&fields
+			url=url&"&offset="&offset
+			url=url&"&limit="&limit
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpGetRequest(url)
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

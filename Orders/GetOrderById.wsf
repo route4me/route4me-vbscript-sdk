@@ -1,0 +1,30 @@
+<job id="Get Orders By ID">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			
+			' The example demonstrates the process of getting an order by order_id sent with HTTP GET
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="http://www.route4me.com/api.v4/order.php"
+			apikey="11111111111111111111111111111111"
+			
+			orderid="96"
+			
+			url=url&"?api_key="&apikey
+			url=url&"&order_id="&orderid
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpGetRequest(url)
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

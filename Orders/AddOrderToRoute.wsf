@@ -1,0 +1,34 @@
+<job id="Add Order To Route">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			' The example refers to teh process of adding an order to a route by sending HTPP PUT data
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://www.route4me.com/api.v4/route.php"
+			apikey="11111111111111111111111111111111"
+			redirect="0"
+			routeid="CEAA81617489EC7F8972372F6248946D"
+			
+			url=url&"?api_key="&apikey
+			url=url&"&redirect="&redirect
+			url=url&"&route_id="&routeid
+			
+			jFile="add_order_to_route_data.json"
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpPostRequest url,jFile
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

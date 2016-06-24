@@ -1,0 +1,34 @@
+<job id="Add Order To Optimization">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			' The example refers to the process of adding an order to an optimization by sending HTPP PUT data
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://www.route4me.com/api.v4/optimization_problem.php"
+			apikey="11111111111111111111111111111111"
+			rdirect=0
+			optid=E0883C1A2C7B3AAA9397BDDF90C9CFF8
+			
+			url=url&"?api_key="&apikey
+			url=url&"&redirect="&redirect
+			url=url&"&optimization_problem_id="&optid
+			
+			jFile="add_order_to_optimization_data.json"
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpPostRequest url,jFile
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

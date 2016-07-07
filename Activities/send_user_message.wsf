@@ -1,4 +1,4 @@
-<job id="AddressbookAddContact">
+<job id="Send User Message">
 	<script language="VBScript" src="../Route4Me.vbs"/>
 	<script language="VBScript">
 		WScript.Quit main()

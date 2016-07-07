@@ -1,0 +1,34 @@
+<job id="Mark Address As Detected As Departed">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			' is_departed=1 means address was departed, is_departed=0 --- not departed
+			
+			url="https://www.route4me.com/api.v4/address.php"
+			apikey="11111111111111111111111111111111"
+			ri="241466F15515D67D3F951E2DA38DE76D"
+			rdi="167899269"
+			
+			url=url&"?api_key="&apikey
+			url=url&"&route_id="&ri
+			url=url&"&route_destination_id="&rdi
+			
+			jFile="mark_address_as_detected_as_departed_data.json"
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpPutRequest url,jFile
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

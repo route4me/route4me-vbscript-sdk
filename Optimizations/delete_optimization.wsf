@@ -13,12 +13,12 @@
 			
 			url="https://www.route4me.com/api.v4/optimization_problem.php"
 			apikey="11111111111111111111111111111111"
-			opi="07372F2CF3814EC6DFFAFE92E22771AA"
+			redirect=0
 			
 			url=url&"?api_key="&apikey
-			url=url&"&optimization_problem_id="&opi
+			url=url&"&redirect="&redirect
 
-			jFile=""
+			jFile="delete_optimization_data.json"
 			
 			Set r4m=New Route4Me
 			

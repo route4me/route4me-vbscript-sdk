@@ -11,17 +11,18 @@
 			url="http://www.route4me.com/api.v4/address_book.php"
 			apikey="11111111111111111111111111111111"
 			
-			' Example demostrates search for all Addressbook contacts, any specified fields which of contains search_text value
-			' Fields are listed in json file
+			' Example demostrates search for all Addressbook contacts, any specified fields which of contains search_text value. The result will contain only fields listed in the parameter 'fields'
 			
-			jFile="Addressbook_get_specified_field_contains_specified_text_data.json"
+			jFile=""
 			
 			search_text="david"
+			fields="first_name,address_email"
 			offset="0"
 			limit="20"
 			
 			url=url&"?api_key="&apikey
 			url=url&"&query="&search_text
+			url=url&"&fields="&fields
 			url=url&"&offset="&offset
 			url=url&"&limit="&limit
 			

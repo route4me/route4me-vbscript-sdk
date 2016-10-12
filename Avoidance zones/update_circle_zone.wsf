@@ -11,12 +11,10 @@
 			
 			url="http://www.route4me.com/api.v4/avoidance.php"
 			apikey="11111111111111111111111111111111"
-			terid1="F540DE7E2698FFA9217AE4C147D94259"
-			terid2="AE1B175E3AB12746125075DF8A088DC4"
+			terid="33C1D8EA0B3078B6238626259FBA914F"
 			
 			url=url&"?api_key="&apikey
-			url=url&"&territory_id="&terid1
-			url=url&"&territory_id="&terid2
+			url=url&"&territory_id="&terid
 			
 			jFile="update_circle_zone_data.json"
 			

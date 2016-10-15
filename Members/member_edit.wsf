@@ -1,4 +1,4 @@
-<job id="Memebers Get Subusers">
+<job id="Edit Memeber's Account">
 	<script language="VBScript" src="../Route4Me.vbs"/>
 	<script language="VBScript">
 		WScript.Quit main()
@@ -8,16 +8,18 @@
 			
 			WScript.Echo "Please, press OK and wait..."
 			
-			' View existing sub-users in a Member's account
+			' Edit a Member's account
 			
 			url="https://www.route4me.com/api.v4/user.php"
 			apikey="11111111111111111111111111111111"
+			
+			jFile="member_edit_data.json"
 			
 			url=url&"?api_key="&apikey
 			
 			Set r4m=New Route4Me
 			
-			r4m.HttpGetRequest(url)
+			r4m.HttpPutRequest url,jFile
 			
 			main=1
 			

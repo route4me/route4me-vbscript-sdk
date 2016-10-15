@@ -1,4 +1,4 @@
-<job id="Memebers Get Subusers">
+<job id="Memeber Get Single Subuser">
 	<script language="VBScript" src="../Route4Me.vbs"/>
 	<script language="VBScript">
 		WScript.Quit main()
@@ -8,12 +8,14 @@
 			
 			WScript.Echo "Please, press OK and wait..."
 			
-			' View existing sub-users in a Member's account
+			' View existing single sub-user in a Member's account
 			
 			url="https://www.route4me.com/api.v4/user.php"
 			apikey="11111111111111111111111111111111"
+			member_id=45844
 			
 			url=url&"?api_key="&apikey
+			url=url&"&member_id="&member_id
 			
 			Set r4m=New Route4Me
 			

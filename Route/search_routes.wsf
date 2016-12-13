@@ -1,0 +1,30 @@
+<job id="Search Routes">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			' The example refers to the process of searching for the specified text throughout all routes belonging to the user's account.
+			
+			url="https://www.route4me.com/api.v4/route.php"
+			apikey="11111111111111111111111111111111"
+			query="Tbilisi"
+			
+			url=url&"?api_key="&apikey
+			url=url&"&query="&query
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpGetRequest url
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

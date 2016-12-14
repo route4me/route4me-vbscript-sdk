@@ -1,0 +1,41 @@
+<job id="Get Device Location History From Time Range">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			
+			'The example refers to the process of getting last location history of a device during the specified time range by sending HTTP parameters.
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://www.route4me.com/api/track/get_device_location.php"
+			apikey="11111111111111111111111111111111"
+			route_id="814FB49CEA8188D134E9D4D4B8B0DAF7"
+			format="json"
+			time_period="custom"
+			start=UDATE("20/10/2016 00:00:00")
+			tend=UDATE("26/10/2016 23:59:59")
+			
+			url=url&"?api_key="&apikey
+			url=url&"&route_id="&route_id
+			url=url&"&format="&format
+			url=url&"&time_period="&time_period
+			url=url&"&start="&start
+			url=url&"&end="&tend
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpGetRequest(url)
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+		
+		function UDate(oldDate)
+			UDate = DateDiff("s", "01/01/1970 00:00:00", oldDate)
+		end function
+	</script>
+</job>

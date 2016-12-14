@@ -1,0 +1,83 @@
+{
+	"data": [{
+		"s": "60",
+		"lt": "41.00478",
+		"m": 0,
+		"lg": "-81.59004",
+		"d": 70,
+		"ts": "1477488852",
+		"ts_friendly": "2016-10-26 09:34:12",
+		"src": "R4M"
+	},
+	{
+		"s": "60",
+		"lt": "41.00478",
+		"m": 0,
+		"lg": "-81.59004",
+		"d": 70,
+		"ts": "1477489979",
+		"ts_friendly": "2016-10-26 09:52:59",
+		"src": "R4M"
+	},
+	{
+		"s": "60",
+		"lt": "41.003672",
+		"m": 0,
+		"lg": "-81.598461",
+		"d": 70,
+		"ts": "1477490169",
+		"ts_friendly": "2016-10-26 09:56:09",
+		"src": "R4M"
+	}],
+	"mmd": {
+		"status": 0,
+		"matchings": [{
+			"trace_time": 1317,
+			"trace_distance": 682,
+			"matched_points": [[41.00478,
+			-81.590034],
+			[41.00478,
+			-81.590034],
+			[41.003674,
+			-81.59803]],
+			"indices": [0,
+			1,
+			2],
+			"matched_time": 92,
+			"instructions": [["10",
+			"5th Street Southeast (SR 619)",
+			210,0,17,
+			"210m",
+			"S",
+			169,1],
+			["3",
+			"Snyder Avenue",
+			771,7,62,
+			"771m",
+			"SW",
+			241,1],
+			["3",
+			"1st Street Southeast",
+			91,18,1,
+			"90m",
+			"N",
+			0,1],
+			["15",
+			"",
+			0,22,0,
+			"0m",
+			"N",
+			0]],
+			"matched_distance": 1072,
+			"geometry": "{vgyFtp~pNZETGRIRKx@i@hBuApA_AZbAJv@B`F?fA@fC@rE@nE@pE@rE@tH?tB??_C?]@E?"
+		}],
+		"summary": {
+			"total_distance": 1072,
+			"matched_time": 92,
+			"matched_distance": 1072,
+			"total_time": 92,
+			"trace_time": 1317,
+			"trace_distance": 718
+		}
+	}
+}

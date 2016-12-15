@@ -22,8 +22,8 @@
 			url=url&"&route_id="&route_id
 			url=url&"&format="&format
 			url=url&"&time_period="&time_period
-			url=url&"&start="&start
-			url=url&"&end="&tend
+			url=url&"&start_date="&start
+			url=url&"&end_date="&tend
 			
 			Set r4m=New Route4Me
 			

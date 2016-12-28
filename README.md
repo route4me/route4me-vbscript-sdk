@@ -542,31 +542,6 @@ The file "multiple_depot_multiple_driver_data.json" contains json data for http 
 }
 ```
 
--------------------
-##Optimization Problem Types
-
-Route4Me provides solutions for different types of routes:
-
-### Single depot, Single Driver
-
-Single Depot, Single Driver is particular case of an Optimization Problem of VRP (Vehicle Routing Problem), in which a vehicle departs from a depot and visits a set of customers.
-
-See video tutorial at [Single Driver, Single Depot](http://support.route4me.com/route-planning-help.php?id=manual0:tutorial2:chapter1:subchapter1)
-
-Required parameters: addresses, api_key, algorithm_types.
-
-see detailed description of parameters and sample values [here] (https://www.route4me.com/api/demo/add_optimization_problem.php?sample=Single%20Depot,%20Single%20Driver)
-
-### Single Driver Route 10 Stops
-
-Single Depot, Single Driver and 10 stops is particular case of an Optimization Problem, in which a vehicle departs from a depot, visits 10 stops and ends exactly in the 10th stop.
-
-Required parameters: addresses, api_key, algorithm_types.
-
-see detailed description of parameters and sample values [here] (https://www.route4me.com/api/demo/add_optimization_problem.php?sample=Single%20Driver%20Route%2010%20Stops)
-
-### Single Driver Round Trip
-
 Single Driver Round Trip is particular case of an Optimization Problem, in which a vehicle departs from a depot, visits a set of customers and ends it's routes in the depot.
 
 Required parameters: addresses, api_key, algorithm_types.

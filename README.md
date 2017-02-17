@@ -1,4 +1,5 @@
 Access Route4Me's logistics-as-a-service API using our Vbscript SDK (Windows Script Host)
+[![Build Status](https://travis-ci.org/route4me/route4me-vbnet-sdk.svg?branch=master)](https://travis-ci.org/route4me/route4me-vbnet-sdk)
 -------------------
 
 

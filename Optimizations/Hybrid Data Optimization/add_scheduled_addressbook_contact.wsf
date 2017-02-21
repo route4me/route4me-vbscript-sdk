@@ -1,0 +1,39 @@
+
+<job id="Create New Optimization">
+	<script language="VBScript" src="../../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			' The example refers to the process of creating new location in an address book belonged to an user.
+			' From same folder you can use other JSON files:
+			' Custom data, daily scheduling - add_scheduled_addressbook_contact_data_1.json
+			' Weekly scheduling - add_scheduled_addressbook_contact_data_2.json
+			' Monthly scheduling in the mode 'dates' - add_scheduled_addressbook_contact_data_3.json
+			' Monthly scheduling in the mode 'nth' - add_scheduled_addressbook_contact_data_4.json
+			' Annualy scheduling array in the both modes - add_scheduled_addressbook_contact_data_5.json
+			' Daily scheduling with the black lists - add_scheduled_addressbook_contact_data_6.json
+
+
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://www.route4me.com/api.v4/address_book.php"
+			apikey="11111111111111111111111111111111"
+			
+			url=url&"?api_key="&apikey
+			
+			jFile="add_scheduled_addressbook_contact_data_1.json"
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpPostRequest2 url,jFile
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

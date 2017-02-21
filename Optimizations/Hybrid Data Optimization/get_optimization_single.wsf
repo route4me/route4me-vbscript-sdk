@@ -1,0 +1,31 @@
+
+<job id="Get Single Optimization">
+	<script language="VBScript" src="../../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			' Please put real value in route_date
+
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://www.route4me.com/api.v4/optimization_problem.php"
+			apikey="11111111111111111111111111111111"
+			optprobid=08BF12A2FA91E9A97429CD0F8B43365E
+			
+			url=url&"?api_key="&apikey
+			url=url&"&optprobid="&optprobid
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpGetRequest2 url,jFile
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

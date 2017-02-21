@@ -1,0 +1,11 @@
+{
+	"address_id":2640167,
+	"schedule": [
+		{"enabled": true,
+			"mode": "daily",
+			"daily": {
+				"every": 1
+			}
+		}
+	]
+}

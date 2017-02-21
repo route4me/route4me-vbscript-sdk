@@ -1,0 +1,31 @@
+
+<job id="Get Locations By IDs">
+	<script language="VBScript" src="../../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			' The example refers to the process of getting the locations from an address book by list of location IDs.
+
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://www.route4me.com/api.v4/address_book.php"
+			apikey="11111111111111111111111111111111"
+			addr_id="13590492,13590498"
+			
+			url=url&"?api_key="&apikey
+			url=url&"&address_id="&addr_id
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpGetRequest2 url,jFile
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

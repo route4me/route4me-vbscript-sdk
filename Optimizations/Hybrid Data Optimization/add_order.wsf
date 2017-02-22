@@ -1,4 +1,5 @@
-<job id="Reoptimization">
+
+<job id="Add Scheduled Order">
 	<script language="VBScript" src="../../Route4Me.vbs"/>
 	<script language="VBScript">
 		WScript.Quit main()
@@ -7,23 +8,20 @@
 			Dim r4m
 			Dim jFile
 			
-			' The example refers to the process of reoptimization an existing optimization.
-			
+			' The example demonstrates process of creating an order by sending HTPP POST data
+
 			WScript.Echo "Please, press OK and wait..."
 			
-			url="https://www.route4me.com/api.v4/optimization_problem.php"
+			url="https://www.route4me.com/api.v4/order.php"
 			apikey="11111111111111111111111111111111"
-			opi="C86B7F391E6A08187FEA0D623B48DA32"
 			
 			url=url&"?api_key="&apikey
-			url=url&"&optimization_problem_id="&opi
-			url=url&"&reoptimize=1"
 			
-			jFile="reoptimization_data.json"
+			jFile="add_order_data_3.json"
 			
 			Set r4m=New Route4Me
 			
-			r4m.HttpPutRequest url,jFile
+			r4m.HttpPostRequest2 url,jFile
 			
 			main=1
 			

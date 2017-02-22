@@ -1,0 +1,37 @@
+
+<job id="Get Hybrid Optimization">
+	<script language="VBScript" src="../../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			' The example refers to the process of getting a hybrid optimization for scheduled date.
+			' You can reoptimize retrieved optimization.
+			' Read Links:
+			' http://support.route4me.com/route-planning-help.php?id=manual11:tutorial2:chapter7
+			' http://support.route4me.com/route-planning-help.php?id=manual11:tutorial3:chapter12
+
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://www.route4me.com/api.v4/hybrid_date_optimization.php"
+			apikey="11111111111111111111111111111111"
+			scheduled_data="2017-02-24"
+			tz_minutes=480
+			
+			url=url&"?api_key="&apikey
+			url=url&"&target_date_string="&scheduled_data
+			url=url&"&timezone_offset_minutes="&tz_minutes
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpGetRequest2 url,jFile
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

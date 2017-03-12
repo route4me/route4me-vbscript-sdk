@@ -1,0 +1,30 @@
+<job id="Get A Vendor">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			' The example refers to the process of getting a telematics vendor.
+			
+			url="https://telematics.route4me.com/api/vendors.php"
+			apikey="11111111111111111111111111111111"
+			vendor_id="153"
+			
+			url=url&"?api_key="&apikey
+			url=url&"&vendor_id="&vendor_id
+			
+			Set r4m=New Route4Me
+			r4m.OutputFile = "get_single_vendor_RESPONSE.json"
+			
+			r4m.HttpGetRequest(url)
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

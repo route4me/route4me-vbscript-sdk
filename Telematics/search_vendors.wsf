@@ -1,0 +1,57 @@
+<job id="Search Vendor">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			' The example refers to the process of searching the telematics vendors by sending HTTP parameters.
+			
+			url0="https://telematics.route4me.com/api/vendors.php"
+			apikey="11111111111111111111111111111111"
+			size="global"
+			is_integrated="1"
+			feature="Satellite"
+			country="GB"
+			search="Fleet"
+			page="1"
+			per_page="15"
+			
+			url=url0&"?api_key="&apikey
+			url=url&"&size="&size
+			url=url&"&is_integrated="&is_integrated
+			url=url&"&page="&page
+			url=url&"&per_page="&per_page
+			
+			Set r4m=New Route4Me
+			r4m.OutputFile = "search_vendors_RESPONSE_1.json"
+			
+			r4m.HttpGetRequest(url)
+			
+			url=url0&"?api_key="&apikey
+			url=url&"&feature="&feature
+			
+			r4m.OutputFile = "search_vendors_RESPONSE_2.json"
+			r4m.HttpGetRequest(url)
+			
+			url=url0&"?api_key="&apikey
+			url=url&"&country="&country
+			
+			r4m.OutputFile = "search_vendors_RESPONSE_3.json"
+			r4m.HttpGetRequest(url)
+			
+			url=url0&"?api_key="&apikey
+			url=url&"&s="&search
+			
+			r4m.OutputFile = "search_vendors_RESPONSE_4.json"
+			r4m.HttpGetRequest(url)
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

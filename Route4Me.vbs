@@ -3,10 +3,31 @@ CONST WHR_EnableRedirects = 6
 
 Class Route4Me
 
+	Private m_fileName
+
+	Public Property Get OutputFile
+
+		OutputFile = m_fileName
+
+	End Property
+
+	Public Property Let OutputFile(ByVal value)
+
+		m_fileName = value
+
+	End Property
+
 	Public Sub Write2File(result)
 		Dim fileName
 		Dim spFile
-		fileName="file1.txt"
+		If m_fileName = Empty Then
+			'MsgBox("File not defined")
+			fileName="file1.txt"
+		Else
+			'MsgBox("File Defined")
+			fileName=OutputFile
+		End If
+		
 
 		Set fso = CreateObject("Scripting.FileSystemObject")
 		If fso.FileExists(fileName) Then

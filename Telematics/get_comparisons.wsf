@@ -1,0 +1,45 @@
+<job id="Get Vendors Comparisons">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			' The example refers to the process of comparison the telematics vendors.
+			
+			url0="https://telematics.route4me.com/api/vendors.php"
+			apikey="11111111111111111111111111111111"
+			vendors="55,56,57"
+			jsonfile="get_comparisons_RESPONSE.json"
+			filter_file="get_comparisons_filter.txt"
+			csv_file="get_comparison.csv"
+			
+			url=url0&"?api_key="&apikey
+			url=url&"&vendors="&vendors
+			
+			' ==== Get JSON response file of the selected vendors ==================
+			
+			Set r4m=New Route4Me
+			r4m.OutputFile = jsonfile
+			
+			r4m.HttpGetRequest(url)
+			
+			' ==== Read response JSON file and make comparison CSV file ============
+
+			' jq-win64 is a JSON parser for batch scripts.  Manual: https://stedolan.github.io/jq/manual/
+
+			Set WshShell = WScript.CreateObject("WScript.Shell")
+			
+			strCommand = "cmd /c type " & jsonfile & " | jq-win64 --raw-output -f " & filter_file & " > " & csv_file 
+			
+			ReturnCode = WshShell.Run(strCommand, 0, True)
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

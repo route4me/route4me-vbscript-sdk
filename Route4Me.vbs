@@ -108,6 +108,7 @@ Class Route4Me
 		Dim jText
 		Set WshShell = WScript.CreateObject("WScript.Shell")
 		'Set http = CreateObject("Microsoft.XmlHttp")
+		
 		Set http = CreateObject("MSXML2.ServerXMLHTTP")
 		http.open "POST", url, False
 		http.setOption 2, SXH_SERVER_CERT_IGNORE_ALL_SERVER_ERRORS
@@ -123,7 +124,7 @@ Class Route4Me
 		If http.Status >= 400 And http.Status <= 599 Then
         	WScript.Echo "Error Occurred : " & http.status & " - " & http.statusText
         End If
-		
+
 		If Err.Number = 0 Then
 			Write2File(http.responseText)
 		Else
@@ -166,6 +167,41 @@ Class Route4Me
 		Set http = Nothing
 	End Sub
 	
+	
+	Public Sub HttpPostFormRequest(url,FormData)
+		'Uses POST to send form data
+		'url is the URL (https://www.route4me.com/actions/merge_routes.php)
+		'FormData are pipe-delimited form data pairs (foo=bar|remove_origin=false)
+		
+		Set WshShell = WScript.CreateObject("WScript.Shell")
+		'Set http = CreateObject("Microsoft.XmlHttp")
+		
+		Set http = CreateObject("MSXML2.ServerXMLHTTP")
+		http.open "POST", url, False
+		http.setOption 2, SXH_SERVER_CERT_IGNORE_ALL_SERVER_ERRORS
+		http.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
+		
+		On Error Resume Next
+		
+		http.setRequestHeader "Content-Length", Len(FormData)
+		http.send FormData
+
+		'http.waitForResponse(20)
+		If http.Status >= 400 And http.Status <= 599 Then
+        	WScript.Echo "Error Occurred : " & http.status & " - " & http.statusText
+        End If
+
+		If Err.Number = 0 Then
+			Write2File(http.responseText)
+		Else
+			WScript.Echo "error " & Err.Number& ":" & Err.Description
+		End If
+		
+		Set WshShell = Nothing
+		Set http = Nothing
+	End Sub
+	
+
 	Sub Upload(strUploadUrl, strFilePath, strFileField, strDataPairs)
 	'Uses POST to upload a file and miscellaneous form data
 	'strUploadUrl is the URL (https://www.route4me.com/actions/upload/upload.php)

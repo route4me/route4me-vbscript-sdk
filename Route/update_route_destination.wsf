@@ -1,0 +1,35 @@
+<job id="Update Route Destination">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			' The example refers to the process of updating a route destination by sending HTTP parameters.
+			
+			url="https://www.route4me.com/api.v4/address.php"
+			apikey="11111111111111111111111111111111"
+			routeid="CA902292134DBC134EAF8363426BD247"
+			routedestinationid="174405640"
+			
+			url=url&"?api_key="&apikey
+			url=url&"&route_id="&routeid
+			url=url&"&route_destination_id="&routedestinationid
+			
+			jFile="update_route_destination_data.json"
+			
+			Set r4m=New Route4Me
+			r4m.OutputFile="update_route_destination_RESPONSE.json"
+			
+			r4m.HttpPutRequest url,jFile
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

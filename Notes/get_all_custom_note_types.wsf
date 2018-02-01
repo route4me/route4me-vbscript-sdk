@@ -1,0 +1,28 @@
+<job id="GetAllCustomNoteTypes">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			' The example refers to the process of getting all the custom note types.
+			
+			url="https://www.route4me.com/api.v4/note_custom_types.php"
+			apikey="11111111111111111111111111111111"
+			
+			url=url&"?api_key="&apikey
+			
+			Set r4m=New Route4Me
+			r4m.OutputFile="get_all_custom_note_types_RESPONSE.json"
+			
+			r4m.HttpGetRequest url
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

@@ -1,0 +1,31 @@
+<job id="RemoveCustomNoteType">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		' The example refers to the process of removing custom note types from a user's account by sending HTTP parameters.
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://www.route4me.com/api.v4/note_custom_types.php"
+			apikey="11111111111111111111111111111111"
+			
+			url=url&"?api_key="&apikey
+
+			jFile="delete_note_custom_type_data.json"
+			
+			Set r4m=New Route4Me
+			r4m.OutputFile="delete_note_custom_type_RESPONSE.json"
+			
+			r4m.HttpDeleteRequest url,jFile
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

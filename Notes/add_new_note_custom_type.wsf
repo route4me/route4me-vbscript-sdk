@@ -1,0 +1,31 @@
+<job id="AddNewCustomNoteType">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			' The example refers to the process of adding a note custom type to a user's account by sending HTTP parameters.
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://www.route4me.com/api.v4/note_custom_types.php"
+			apikey="11111111111111111111111111111111"
+			
+			url=url&"?api_key="&apikey
+			
+			jFile="add_new_note_custom_type_data.json"
+			'msgbox(url)
+			Set r4m=New Route4Me
+			r4m.OutputFile="add_new_note_custom_type_RESPONSE.json"
+			
+			r4m.HttpPostRequest2 url,jFile
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

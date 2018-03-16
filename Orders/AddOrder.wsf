@@ -8,11 +8,12 @@
 			Dim jFile
 			
 			' The example refers to the process of creating an order by sending HTPP POST data
+			' Note: this method allowed only for business and higher account types, you should use valid API key.
 			
 			WScript.Echo "Please, press OK and wait..."
 			
 			url="https://www.route4me.com/api.v4/order.php"
-			apikey="11111111111111111111111111111111"
+			apikey="bd48828717021141485a701453273458"
 			
 			url=url&"?api_key="&apikey
 			

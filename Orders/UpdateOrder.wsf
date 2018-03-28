@@ -11,7 +11,7 @@
 			
 			WScript.Echo "Please, press OK and wait..."
 			
-			url="https://www.route4me.com/api.v4/order.php"
+			url="https://api.route4me.com/api.v4/order.php"
 			apikey="11111111111111111111111111111111"
 			redirect="0"
 			routeid="CEAA81617489EC7F8972372F6248946D"

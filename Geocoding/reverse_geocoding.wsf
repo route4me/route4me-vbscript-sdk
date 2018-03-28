@@ -11,7 +11,7 @@
 			
 			WScript.Echo "Please, press OK and wait..."
 			
-			url="https://www.route4me.com/api/geocoder.php"
+			url="https://api.route4me.com/api/geocoder.php"
 			apikey="11111111111111111111111111111111"
 			format="xml"
 			addrs="42.35863,-71.05670"

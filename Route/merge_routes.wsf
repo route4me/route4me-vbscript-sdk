@@ -11,7 +11,7 @@
 			
 			' The example refers to the process of merging of the two routes into one route.
 			
-			url="https://www.route4me.com/actions/merge_routes.php"
+			url="https://api.route4me.com/actions/merge_routes.php"
 			apikey="11111111111111111111111111111111"
 			
 			url=url&"?api_key="&apikey

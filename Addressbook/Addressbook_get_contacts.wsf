@@ -8,7 +8,7 @@
 			
 			WScript.Echo "Please, press OK and wait..."
 			
-			url="http://www.route4me.com/api.v4/address_book.php"
+			url="http://api.route4me.com/api.v4/address_book.php"
 			apikey="11111111111111111111111111111111"
 			
 			url=url&"?api_key="&apikey

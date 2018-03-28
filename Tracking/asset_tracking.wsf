@@ -10,7 +10,7 @@
 			
 			WScript.Echo "Please, press OK and wait..."
 			
-			url="https://www.route4me.com/api/asset/find_route.php"
+			url="https://api.route4me.com/api/asset/find_route.php"
 			apikey="11111111111111111111111111111111"
 			query="2121541"
 			

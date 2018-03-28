@@ -8,7 +8,7 @@
 			
 			WScript.Echo "Please, press OK and wait..."
 			
-			url="https://www.route4me.com/api.v4/address.php"
+			url="https://api.route4me.com/api.v4/address.php"
 			apikey="11111111111111111111111111111111"
 			route_id="5C15E83A4BE005BCD1537955D28D51D7"
 			rdi="160940135"

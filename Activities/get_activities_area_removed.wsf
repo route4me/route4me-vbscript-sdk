@@ -11,7 +11,7 @@
 			' You should insert real test data and your API key for accurate testing
 			' Needs clarification --- in route_id return always 00000000000000000000000000000000
 
-			url="https://www.route4me.com/api/get_activities.php"
+			url="https://api.route4me.com/api/get_activities.php"
 			apikey="11111111111111111111111111111111"
 			act_type="area-removed"
 			

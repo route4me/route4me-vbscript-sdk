@@ -10,7 +10,7 @@
 			
 			' Create new member account
 			
-			url="https://www.route4me.com/api.v4/user.php"
+			url="https://api.route4me.com/api.v4/user.php"
 			apikey="11111111111111111111111111111111"
 			
 			jFile="member_create_v4_data.json"

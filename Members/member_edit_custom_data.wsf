@@ -1,0 +1,29 @@
+<job id="Edit Memeber's Account">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			' Edit/Add custom data to a Member's account
+			
+			url="https://api.route4me.com/api.v4/user.php"
+			apikey="11111111111111111111111111111111"
+			
+			jFile="member_edit_custom_data_data.json"
+			
+			url=url&"?api_key="&apikey
+			
+			Set r4m=New Route4Me
+			
+			r4m.HttpPutRequest url,jFile
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

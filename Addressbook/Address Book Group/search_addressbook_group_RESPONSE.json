@@ -1,0 +1,60 @@
+{
+	"results": [
+		[
+			47461149,
+			"Scheduled weekly",
+			"1407 MCCOY, Louisville, KY, 40215"
+		],
+		[
+			47461148,
+			"Scheduled daily",
+			"1604 PARKRIDGE PKWY, Louisville, KY, 40214"
+		],
+		[
+			47461153,
+			"Scheduled daily",
+			"1604 PARKRIDGE PKWY, Louisville, KY, 40214"
+		],
+		[
+			47467939,
+			"Scheduled daily",
+			"1604 PARKRIDGE PKWY, Louisville, KY, 40214"
+		],
+		[
+			47461152,
+			"Scheduled daily",
+			"4629 HILLSIDE DRIVE, Louisville, KY, 40216"
+		],
+		[
+			47461157,
+			"Scheduled daily",
+			"4629 HILLSIDE DRIVE, Louisville, KY, 40216"
+		],
+		[
+			47461150,
+			"Scheduled monthly",
+			"4805 BELLEVUE AVE, Louisville, KY, 40215"
+		],
+		[
+			47461155,
+			"Scheduled monthly",
+			"4805 BELLEVUE AVE, Louisville, KY, 40215"
+		],
+		[
+			47462735,
+			"Scheduled monthly",
+			"4805 BELLEVUE AVE, Louisville, KY, 40215"
+		],
+		[
+			47467941,
+			"Scheduled monthly",
+			"4805 BELLEVUE AVE, Louisville, KY, 40215"
+		]
+	],
+	"total": 20,
+	"fields": [
+		"address_id",
+		"address_1",
+		"address_group"
+	]
+}

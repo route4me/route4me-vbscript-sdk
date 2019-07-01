@@ -1,0 +1,33 @@
+<job id="AddressbookAddContact">
+	<script language="VBScript" src="../../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://www.route4me.com/api.v4/address_book_group.php"
+			apikey="11111111111111111111111111111111"
+			
+			url=url&"?api_key="&apikey
+			
+			offset="0"
+			limit="10"
+			url=url&"&offset="&offset
+			url=url&"&limit="&limit
+			
+			Set r4m=New Route4Me
+			
+			r4m.OutputFile = "get_addressbook_groups_RESPONSE.json"
+			
+			r4m.HttpGetRequest(url)
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

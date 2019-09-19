@@ -1,0 +1,33 @@
+<job id="View Routes">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			' The example refers to the process of getting the optimizations scheduled for the specified date range.
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://api.route4me.com/api.v4/optimization_problem.php"
+			apikey="11111111111111111111111111111111"
+			start_date="2019-09-15"
+			end_date="2019-09-20"
+			
+			url=url&"?api_key="&apikey
+			url=url&"&strat_date="&start_date
+			url=url&"&limit"&end_date
+			
+			Set r4m=New Route4Me
+			r4m.OutputFile="get_optimizations_from_date_range_RESPONSE.json"
+			
+			r4m.HttpGetRequest url
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

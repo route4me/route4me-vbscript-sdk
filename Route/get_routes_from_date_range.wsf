@@ -7,7 +7,7 @@
 			Dim r4m
 			Dim jFile
 			
-			' The example refers to the process of getting the routes schedule for the specified date range.
+			' The example refers to the process of getting the routes scheduled for the specified date range.
 			
 			WScript.Echo "Please, press OK and wait..."
 			

@@ -7,6 +7,8 @@
 			Dim r4m
 			Dim jFile
 			
+			' The example refers to the process of getting the routes schedule for the specified date range.
+			
 			WScript.Echo "Please, press OK and wait..."
 			
 			url="https://api.route4me.com/api.v4/route.php"

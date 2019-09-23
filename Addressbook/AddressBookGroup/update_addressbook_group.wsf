@@ -14,14 +14,13 @@
 			
 			url=url&"?api_key="&apikey
 			
-			group_id="54AC71733C0DE0A1B67EE1B39BDE1142"
-			url=url&"&group_id="&group_id
+			jFile="update_addressbook_group_data.json"
 			
 			Set r4m=New Route4Me
 			
-			r4m.OutputFile = "get_addressbook_group_RESPONSE.json"
+			r4m.OutputFile = "update_addressbook_group_RESPONSE.json"
 			
-			r4m.HttpGetRequest(url)
+			r4m.HttpPutRequest url,jFile
 			
 			main=1
 			

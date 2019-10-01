@@ -1,0 +1,33 @@
+<job id="Create Scheduled Order">
+	<script language="VBScript" src="../../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			' The example refers to the process of creating a scheduled order by sending HTPP POST data
+			' Note: this method allowed only for business and higher account types, you should use valid API key.
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			url="https://api.route4me.com/api.v4/order.php"
+			apikey="11111111111111111111111111111111"
+			
+			url=url&"?api_key="&apikey
+			
+			jFile="add_scheduled_order_data.json"
+			
+			Set r4m=New Route4Me
+			
+			r4m.outputFile="add_scheduled_order_RESPONSE.json"
+			
+			r4m.HttpPostRequest url,jFile
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

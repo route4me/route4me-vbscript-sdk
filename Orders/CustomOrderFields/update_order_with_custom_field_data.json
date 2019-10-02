@@ -1,0 +1,9 @@
+{
+	"order_id": 65900,
+	"custom_user_fields": [
+      {
+       	"order_custom_field_id": 93, 
+       	"order_custom_field_value": "true"
+      }
+    ]
+}

@@ -10,14 +10,18 @@
 			
 			url="https://api.route4me.com/api.v4/territory.php"
 			apikey="11111111111111111111111111111111"
-			terid="596A2A44FE9FB19EEB9C3C072BF2D0BE"
+			terid="63E27D8186AAE43F202CB97DECBFD826"
 			addresses=1
+			orders=1
 			
 			url=url&"?api_key="&apikey
 			url=url&"&territory_id="&terid
 			url=url&"&addresses="&addresses
+			url=url&"&orders="&orders
 			
 			Set r4m=New Route4Me
+			
+			r4m.outputFile="get_territory_with_addresses_orders_RESPONSE.json"
 			
 			r4m.HttpGetRequest(url)
 			

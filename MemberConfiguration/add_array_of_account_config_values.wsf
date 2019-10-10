@@ -1,0 +1,30 @@
+<job id="Add Account Configuration Keys Array">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			' Example refers to the process of adding array of the new account configuration keys to the user's account.
+			
+			url="https://route4me.com/api.v4/configuration-settings.php"
+			apikey="11111111111111111111111111111111"
+			
+			url=url&"?api_key="&apikey
+			
+			jFile="add_array_of_account_config_values_data.json"
+			
+			Set r4m=New Route4Me
+			r4m.outputFile="add_array_of_account_config_values_RESPONSE.json"
+			
+			r4m.HttpPostRequest url,jFile
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

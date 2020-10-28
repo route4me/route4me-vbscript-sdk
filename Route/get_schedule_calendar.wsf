@@ -1,0 +1,42 @@
+<job id="Get Schedule Calendar">
+	<script language="VBScript" src="../Route4Me.vbs"/>
+	<script language="VBScript">
+		WScript.Quit main()
+		
+		Function main()
+			Dim r4m
+			Dim jFile
+			
+			WScript.Echo "Please, press OK and wait..."
+			
+			' The example refers to the process of getting the schedule calendar.
+			' The example requires an API key with the enterprise subscription.
+			
+			url="https://api.route4me.com/api/schedule_calendar_data.php"
+			apikey="11111111111111111111111111111111"
+			date_from_string="2020-10-20"
+			date_to_string="2020-11-20"
+			timezone_offset_minutes=-240
+			orders=1
+			ab=1
+			routes_count=1
+			
+			url=url&"?api_key="&apikey
+			url=url&"&date_from_string="&date_from_string
+			url=url&"&date_to_string="&date_to_string
+			url=url&"&timezone_offset_minutes="&timezone_offset_minutes
+			url=url&"&orders="&orders
+			url=url&"&ab="&ab
+			url=url&"&routes_count="&routes_count
+			
+			Set r4m=New Route4Me
+			r4m.OutputFile="get_schedule_calendar_RESPONSE.json"
+			
+			r4m.HttpGetRequest url
+			
+			main=1
+			
+			WScript.Echo "Finished..."
+		End Function
+	</script>
+</job>

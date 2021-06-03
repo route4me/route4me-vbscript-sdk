@@ -7,7 +7,7 @@
 			Dim r4m
 			Dim jFile
 			
-			' This task requires clarification
+			' The endpoint is obsolete.
 			
 			WScript.Echo "Please, press OK and wait..."
 			
